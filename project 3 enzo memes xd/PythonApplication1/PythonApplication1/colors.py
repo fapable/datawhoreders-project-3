@@ -1,0 +1,1 @@
+def red(): return "#FF0000"
