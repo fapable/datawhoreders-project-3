@@ -1,64 +1,65 @@
-def red2(): return "#FF0000"
-def red3():
-def red4():
-def red5():
-def red6():
-def red7():
-def red8():
-def blue1():
-def blue2():
-def blue3():
-def blue4():
-def blue5():
-def blue6():
-def blue7():
-def blue8():
-def green1():
-def green2():
-def green3():
-def green4():
-def green5():
-def green6():
-def green7():
-def green8():
-def yellow1():
-def yellow2():
-def yellow3():
-def yellow4():
-def yellow5():
-def yellow6():
-def yellow7():
-def yellow8():
-def purple1():
-def purple2():
-def purple3():
-def purple4():
-def purple5():
-def purple6():
-def purple7():
-def purple8():
-def orange1():
-def orange2():
-def orange3():
-def orange4():
-def orange5():
-def orange6():
-def orange7():
-def orange8():
-def pink1():
-def pink2():
-def pink3():
-def pink4():
-def pink4():
-def pink5():
-def pink6():
-def pink7():
-def pink8():
-def turquoise1():
-def turquoise2():
-def turquoise3():
-def turquoise4():
-def turquoise5():
-def turquoise6():
-def turquoise7():
-def turquoise8():
+def red1(): return "#660000"
+def red2(): return "#990000"
+def red3(): return "#CC0000"
+def red4(): return "#FF0000"
+def red5(): return "#CC3333"
+def red6(): return "#FF6666"
+def red7(): return "#FF9999"
+def red8(): return "#FFCCCC"
+def blue1(): return "#000066"
+def blue2(): return "#000099"
+def blue3(): return "#0000CC"
+def blue4(): return "#0000FF"
+def blue5(): return "#3366FF"
+def blue6(): return "#3399FF"
+def blue7(): return "#66CCFF"
+def blue8(): return "#99CCFF"
+def green1(): return "#003300"
+def green2(): return "#006600"
+def green3(): return "#009900"
+def green4(): return "#00CC00"
+def green5(): return "#00FF00"
+def green6(): return "#66FF66"
+def green7(): return "#99FF99"
+def green8(): return "#CCFFCC"
+def yellow1(): return "#996633"
+def yellow2(): return "#CC9900"
+def yellow3(): return "#FFCC00"
+def yellow4(): return "#FFFF00"
+def yellow5(): return "#FFFF33"
+def yellow6(): return "#FFFF66"
+def yellow7(): return "#FFFF99"
+def yellow8(): return "#FFFFCC"
+def purple1(): return "#330066"
+def purple2(): return "#660099"
+def purple3(): return "#663399"
+def purple4(): return "#9900CC"
+def purple5(): return "#9933FF"
+def purple6(): return "#9966FF"
+def purple7(): return "#9999FF"
+def purple8(): return "#CCCCFF"
+def orange1(): return "#663300"
+def orange2(): return "#993300"
+def orange3(): return "#CC3300"
+def orange4(): return "#FF3300"
+def orange5(): return "#FF6600"
+def orange6(): return "#FF6633"
+def orange7(): return "#FF9966"
+def orange8(): return "#FFCC99"
+def pink1(): return "#660066"
+def pink2(): return "#990066"
+def pink3(): return "#CC0099"
+def pink4(): return "#FF0099"
+def pink5(): return "#FF00FF"
+def pink6(): return "#FF66FF"
+def pink7(): return "#FF99FF"
+def pink8(): return "#FFCCFF"
+def turquoise1(): return "#003333"
+def turquoise2(): return "#336666"
+def turquoise3(): return "#006666"
+def turquoise4(): return "#009999"
+def turquoise5(): return "#00CCCC"
+def turquoise6(): return "#66CCCC"
+def turquoise7(): return "#66FFCC"
+def turquoise8(): return "#99FFCC"
+def grey(): return "#999999"
