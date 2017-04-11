@@ -22,13 +22,16 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="database.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="kaart.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="colors.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="database.py">
+    <Compile Include="pliesiebureaus.py">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
