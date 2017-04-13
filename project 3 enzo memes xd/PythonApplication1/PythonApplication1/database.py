@@ -24,4 +24,4 @@ class Database:
         return results
 
     def get_data(result, tabel, jaar, wijk):
-        return Database.interact_with_database("SELECT " + str(result) + " FROM " + str(tabel) + " WHERE jaar = " + str(jaar) + "AND wijk = " + str(wijk))[0][0]
+        return Database.interact_with_database("SELECT " + str(result) + " FROM " + str(tabel) + " WHERE jaar = " + str(jaar) + " AND wijk = " + str(wijk))[0][0]

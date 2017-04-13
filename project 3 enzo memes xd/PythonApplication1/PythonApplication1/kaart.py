@@ -13,7 +13,6 @@ height = 720
 canvas = Canvas(tk, width=width, height=height)
 kaart = PhotoImage(file = "kaart4.gif")
 pliesie = PhotoImage(file = "wouten.gif")
-wirhabenstroom = PhotoImage(file = "stroom.gif")
 canvas.create_image(905,355,image=kaart)
 
 def callback():
@@ -52,7 +51,7 @@ hillegersberg_schiebroek = Area("blue",(828,123,825,237,1013,188,999,126,983,142
 ijsselmonde = Area("blue",(1048,396,993,411,979,395,967,403,997,465,991,490,969,490,945,515,971,549,1016,554,1049,542,1105,511,1111,519,1121,513,1141,404,1083,389))
 kralingen_crooswijk = Area("blue",(1014,188,1041,303,1025,332,1048,396,993,411,979,395,969,348,931,333,921,307,891,303,887,220))
 noord = Area("blue",(887,220,825,237,739,288,757,312,804,308,805,303,859,295,891,303))
-overschie = Area(c.red1(),(603,129,631,122,637,137,737,73,784,133,815,109,828,123,825,237,739,288,759,314,705,319,678,269,706,233,700,230,669,244,643,215,633,228))
+overschie = Area("blue",(603,129,631,122,637,137,737,73,784,133,815,109,828,123,825,237,739,288,759,314,705,319,678,269,706,233,700,230,669,244,643,215,633,228))
 prins_alexander = Area("blue",(1041,303,1107,283,1101,233,1129,251,1100,151,1109,148,1115,155,1214,94,1194,77,1210,21,1203,8,1078,51,1120,97,1085,113,1063,89,999,126))
 centrum = Area("blue",(841,409,829,372,815,369,831,359,829,307,804,308,805,303,859,295,891,303,921,307,931,333,917,337,881,383))
 
@@ -70,13 +69,12 @@ centrum = Area("blue",(841,409,829,372,815,369,831,359,829,307,804,308,805,303,8
 
 #pb.politiebureau()
 
-if d.get_data("average", "criminaliteit", "'2009'", "'Charlois'") > 10:
-    canvas.itemconfig(charlois, fill='red')
+if d.get_data("average", "criminaliteit", "'2009'", "'Charlois'") > 0:
+    canvas.itemconfig(charlois.shape, fill="black")
 
 politiebureau()
 
-canvas.create_image(1100,500, image = wirhabenstroom)
 canvas.grid()
 b.grid()
 
-tk.mainloop()
+tk.mainloop() 
