@@ -34,7 +34,7 @@ class Kaart:
 def callback():
     print("click!")
 
-b = Button(tk, text="OK", command=callback())
+b = Button(tk, text="OK", command=callback)
 
 
 def politiebureau():
@@ -94,7 +94,7 @@ if d.get_data("average", "criminaliteit", "'2009'", "'Charlois'") > 10:
     canvas.itemconfig(map.charlois.shape, fill="black")
 
 def mainLoop():
-    politiebureau()
+    #politiebureau()
     canvas.grid()
     b.grid()
     tk.mainloop() 
