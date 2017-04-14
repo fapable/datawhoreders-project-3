@@ -1,9 +1,6 @@
 CREATE TABLE Politiebureaus (
-    
 Politiebureau VARCHAR(19),
-    
 Adres VARCHAR(29),
-    
 Wijk VARCHAR(19),
 X INT,
 Y INT);
