@@ -35,6 +35,13 @@ def callback():
     print("click!")
 
 b = Button(tk, text="OK", command=callback)
+button1 = Button(tk, text ="Question 1", command = callback, bg = "white", fg = "black")
+
+button2 = Button(tk, text ="Question 2", command = callback, bg = "white", fg = "black")
+
+button3 = Button(tk, text ="Question 3", command = callback, bg = "white", fg = "black")
+button3.grid(row = 2, column = 0)
+
 
 
 def politiebureau():
@@ -95,8 +102,12 @@ if d.get_data("average", "criminaliteit", "'2009'", "'Charlois'") > 10:
 
 def mainLoop():
     #politiebureau()
-    canvas.grid()
-    b.grid()
+    button1.grid(row = 0, column = 0, pady = 20)
+    button2.grid(row = 1, column = 0)
+    button3.grid(row = 2, column = 0)
+    canvas.grid(row=3, column=1)
+
+    #b.grid()
     tk.mainloop() 
 
 mainLoop()
