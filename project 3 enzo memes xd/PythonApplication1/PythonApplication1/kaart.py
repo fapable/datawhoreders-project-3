@@ -1,14 +1,13 @@
 from tkinter import *
 import colors as c
 import pliesiebureaus as pb
-from database import Database as d
-import matplotlib    
+import database as d
         
         
 
 tk = Tk()
 tk.resizable(width=False, height=False)
-tk.title("( ͡° ͜ʖ ͡°)")
+tk.title("yeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee boiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii")
 
 width = 1280
 height = 720
@@ -31,10 +30,34 @@ class Kaart:
         self.centrum =  Area("blue", (841,409,829,372,815,369,831,359,829,307,804,308,805,303,859,295,891,303,921,307,931,333,917,337,881,383))
 
 
-def callback():
-    print("click!")
+def pbbutton():
+    # while True:
+        A = canvas.create_text(1, 30, anchor = W, font = "Arial", text = "Wat voor effect heeft het aantal politie bureaus op de veiligheid van de wijken?") # We willen niet dat dit ook weg kan gaan en niet altijd "drawed" is > dunno how to fix (misschien while loop return False fixt het?
+        politiebureau() # applicatie laat politiebureau icons niet zien > dunno how to fix.
 
-button1 = Button(tk, text ="Question 1", command = callback, bg = "white", fg = "black")
+        # misschien matplotlib grafiek hier ergens?
+        # if back button is geklikt, tk.mainloop(????? not sure), return False voor while loop
+        # else: pass
+
+
+# def callback voor 2e vraag
+    # while True:
+    # drawing van de vraag (zoals pbbutton)
+    # function van alles wat er moet gebeuren bij vraag 2
+    # misschien matplotlib grafiek hier ergens?
+    # if back button is geklikt, tk.mainloop(????? not sure), return False voor while loop
+    # else: pass
+
+def callback(): #verandering van naam
+    print("click!") # dit gaat weg bij derde vraag
+    # while True:
+    # drawing van de vraag (zoals pbbutton)
+    # function van alles wat er moet gebeuren bij vraag 3
+    # misschien matplotlib grafiek hier ergens?
+    # if back button is geklikt, tk.mainloop(????? not sure), return False voor while loop
+    # else: pass
+
+button1 = Button(tk, text ="Question 1", command = pbbutton, bg = "white", fg = "black") # command = callback naar command = pbbutton veranderd.
 button2 = Button(tk, text ="Question 2", command = callback, bg = "white", fg = "black")
 button3 = Button(tk, text ="Question 3", command = callback, bg = "white", fg = "black")
 
@@ -64,16 +87,15 @@ map = Kaart()
 
 #pb.politiebureau()
 
-if d.get_crime_data("average", "'2009'", "'Charlois'") > 10:
+if d.get_data("average", "criminaliteit", "'2009'", "'Charlois'") > 10:
     canvas.itemconfig(map.charlois.shape, fill="black")
 
 def mainLoop():
-    politiebureau()
     canvas.grid()
     button1.grid(row = 0, column = 0)
     button2.grid(row = 1, column = 0)
     button3.grid(row = 2, column = 0)
-    canvas.grid(row=3, column=1)
+    canvas.grid(row=0, column=1,rowspan = 3)
     tk.mainloop() 
     d.test()
 
