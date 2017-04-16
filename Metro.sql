@@ -11,7 +11,6 @@ VALUES ('Centrum', 4.81, 9),
 ('Hillegersberg_Schiebroek', 13.26, 2),
 ('Kralingen_Crooswijk', 12.9, 3),
 ('Feijenoord', 6.44, 4),
-('IJsselmonde', 13.12, NULL),
+('Ijsselmonde', 13.12, NULL),
 ('Prins_Alexander', 20.24, 10),
-('Charlois', 10.0, 2),
-('Hoogvliet', 9.5, 3);
+('Charlois', 10.0, 2);
