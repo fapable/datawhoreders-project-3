@@ -1,9 +1,9 @@
 CREATE TABLE metro (
 wijk VARCHAR(255),
 wijkoppervlakte_km2 FLOAT,
-aantal stations INT);
+aantal_stations INT);
 
-INSERT INTO metro (wijk, wijkoppervlakte_km2, aantal stations)
+INSERT INTO metro (wijk, wijkoppervlakte_km2, aantal_stations)
 VALUES ('Centrum', 4.81, 9),
 ('Delfshaven', 5.8, 5),
 ('Overschie', 15.80, NULL),
