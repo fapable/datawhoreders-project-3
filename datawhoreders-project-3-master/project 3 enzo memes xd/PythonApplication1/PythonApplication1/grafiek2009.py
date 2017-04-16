@@ -1,12 +1,11 @@
-import database as d
-import psycopg2
+from database import Database as d
 import numpy as np
 import matplotlib.pyplot as plt
 connection = psycopg2.connect(host = "localhost", dbname = "", user = "postgres", password = "")
 
 
 N = 10
-criminaliteit2009 = (d.get_crime_data("average", "criminaliteit" ,"2009", "'Charlois'"),d.get_crime_data("average", "criminaliteit" ,"2009", "'Delfshaven'") , d.get_crime_data("average", "criminaliteit" ,"2009", "'Feijenoord'"), d.get_crime_data("average", "criminaliteit" ,"2009", "'Hillegersberg-Schiebroek'"), d.get_crime_data("average", "criminaliteit" ,"2009", "'Ijsselmonde'"), d.get_crime_data("average", "criminaliteit" ,"2009", "'Kralingen-Crooswijk'"), d.get_crime_data("average", "criminaliteit" ,"2009", "'Noord'"), d.get_crime_data("average", "criminaliteit" ,"2009", "'Overschie'"), d.get_crime_data("average", "criminaliteit" ,"2009", "'Prins-Alexander'"), d.get_crime_data("average", "criminaliteit" ,"2009", "'Centrum'"))
+criminaliteit2009 = (d.get_crime_data("average" ,"'2009'", "'Charlois'"),d.get_crime_data("average","'2009'", "'Delfshaven'") , d.get_crime_data("average", "criminaliteit" ,"2009", "'Feijenoord'"), d.get_crime_data("average", "criminaliteit" ,"2009", "'Hillegersberg-Schiebroek'"), d.get_crime_data("average", "criminaliteit" ,"2009", "'Ijsselmonde'"), d.get_crime_data("average", "criminaliteit" ,"2009", "'Kralingen-Crooswijk'"), d.get_crime_data("average", "criminaliteit" ,"2009", "'Noord'"), d.get_crime_data("average", "criminaliteit" ,"2009", "'Overschie'"), d.get_crime_data("average", "criminaliteit" ,"2009", "'Prins-Alexander'"), d.get_crime_data("average", "criminaliteit" ,"2009", "'Centrum'"))
 criminaliteit2009_std = (1, 1, 1, 0, 1, 1, 1, 1, 1, 1)
 
 ind = np.arange(N)  # the x locations for the groups
