@@ -25,8 +25,5 @@ class Database:
     def politie_coordinaten():
         return Database.interact_with_database("SELECT X, Y FROM politiebureaus")
 
-    def get_areas_2009(tabel):
-        return Database.interact_with_database("SELECT wijk FROM " + str(tabel) + " WHERE jaar = '2009'")
-
-    def get_areas_2011(tabel):
-        return Database.interact_with_database("SELECT wijk FROM " + str(tabel) + " WHERE jaar = '2011'")
+    def get_areas(tabel, jaar):
+        return Database.interact_with_database("SELECT wijk FROM " + str(tabel) + " WHERE jaar = " + str(jaar))
