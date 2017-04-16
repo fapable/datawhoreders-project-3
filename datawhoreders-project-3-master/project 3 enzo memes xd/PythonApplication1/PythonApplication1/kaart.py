@@ -1,8 +1,9 @@
 from tkinter import *
 import colors as c
 import pliesiebureaus as pb
-from database import Database as d
-import matplotlib        
+from database import Database as d   
+import grafiek2009  
+from grafiek2009 import crime_graph_2009
 
 tk = Tk()
 tk.resizable(width=False, height=False)
@@ -38,8 +39,8 @@ class Standaard_Kaart:
         self.centrumTxt = canvas.create_text(860,350,fill = text_color,text="Centrum")
         self.button1 = Button(tk, text = "Question 1", command = create_average_crime_result_2009, bg = "white", fg = "black")
         self.button2 = Button(tk, text = "Question 2", command = create_average_crime_result_2011, bg = "white", fg = "black")
-        self.button3 = Button(tk, text = "Question 3", command = remove_extra_images, bg = "white", fg = "black")
-        self.button4 = Button(tk, text = "Question 4", command = None, bg = "white", fg = "black")
+        self.button3 = Button(tk, text = "Question 3", command = None, bg = "white", fg = "black")
+        self.button4 = Button(tk, text = "Question 4", command = create_metro_result, bg = "white", fg = "black")
         self.button1.grid(row = 0, column = 0)
         self.button2.grid(row = 1, column = 0)
         self.button3.grid(row = 2, column = 0)
@@ -53,27 +54,47 @@ class crime_result:
         for wijk in d.get_areas("criminaliteit", jaar):
             a = wijk[0]
             result = d.get_crime_data(soort, jaar, ("'" + a + "'"))
-            canvas.itemconfig(str_to_code(main_screen, str(a)).shape, fill = c.rgb_to_hex(result, (255, 0 ,0), 20))
+            canvas.itemconfig(str_to_code(main_screen, str(a)).shape, fill = c.rgb_to_hex(result, (255, 0 ,0), 20, True))
+
+class metro_result:
+    def __init__(self, main_screen):
+        for wijk in d.get_areas("metro", None):
+            a = wijk[0]
+            info = d.get_metro_info(("'" + a + "'"))[0]
+            if info[1] != None:
+                result = info[1]/info[0]
+                canvas.itemconfig(str_to_code(main_screen, str(a)).shape, fill = c.rgb_to_hex(result, (0, 255, 0), 2, False))
+            else:
+                canvas.itemconfig(str_to_code(main_screen, str(a)).shape, fill = str_to_code(main_screen, str(a)).color)
 
 def create_average_crime_result_2009():
     remove_extra_images()
     crime_result(map, "'2009'", "average")
     politiebureau()
+    crime_graph_2009()
 
 def create_average_crime_result_2011():
     remove_extra_images()
     crime_result(map, "'2011'", "average")
     politiebureau()
 
+def create_metro_result():
+    remove_extra_images()
+    metro_result(map)
+
 def politiebureau():
     global pimg 
     pimg = PhotoImage(file = "wouten.gif")
+    global climg
+    climg = PhotoImage(file = "Politiebureau_legenda.gif")
     for item in d.politie_coordinaten():
         canvas.create_image(item[0], item[1], image = pimg)
+    canvas.create_image((width - (climg.width()/2)), (height - (climg.height()/2)), image = climg)
 
 def remove_extra_images():
     try:
         pimg.__del__()
+        climg.__del__()
     except(NameError):
         pass
         

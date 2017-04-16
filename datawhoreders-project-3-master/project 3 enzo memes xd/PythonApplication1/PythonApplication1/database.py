@@ -26,4 +26,13 @@ class Database:
         return Database.interact_with_database("SELECT X, Y FROM politiebureaus")
 
     def get_areas(tabel, jaar):
-        return Database.interact_with_database("SELECT wijk FROM " + str(tabel) + " WHERE jaar = " + str(jaar))
+        if jaar != None:
+            return Database.interact_with_database("SELECT wijk FROM " + str(tabel) + " WHERE jaar = " + str(jaar))
+        else:
+            return Database.interact_with_database("SELECT wijk FROM " + str(tabel))
+
+    def get_metro_info(wijk):
+        return Database.interact_with_database("SELECT wijkoppervlakte_km2, aantal_stations FROM metro WHERE wijk = " + str(wijk))
+
+    def get_police_data(result, tabel, wijk):
+        return Database.interact_with_database("SELECT COUNT(politiebureau)" + str(result) + " FROM " + str(tabel) + " WHERE wijk = " + str(wijk))[0][0] 
