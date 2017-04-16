@@ -36,38 +36,33 @@ class Standaard_Kaart:
         self.prins_alexanderTxt = canvas.create_text(1060,170,fill = text_color,text="Prins Alexander")
         self.Centrum =  Area(area_color, (841,409,829,372,815,369,831,359,829,307,804,308,805,303,859,295,891,303,921,307,931,333,917,337,881,383))
         self.centrumTxt = canvas.create_text(860,350,fill = text_color,text="Centrum")
-        self.button1 = Button(tk, text ="Question 1", command = create_crime_result_2009, bg = "white", fg = "black")
-        self.button2 = Button(tk, text ="Question 2", command = create_crime_result_2011, bg = "white", fg = "black")
-        self.button3 = Button(tk, text ="Question 3", command = remove_extra_images, bg = "white", fg = "black")
+        self.button1 = Button(tk, text = "Question 1", command = create_average_crime_result_2009, bg = "white", fg = "black")
+        self.button2 = Button(tk, text = "Question 2", command = create_average_crime_result_2011, bg = "white", fg = "black")
+        self.button3 = Button(tk, text = "Question 3", command = remove_extra_images, bg = "white", fg = "black")
+        self.button4 = Button(tk, text = "Question 4", command = None, bg = "white", fg = "black")
         self.button1.grid(row = 0, column = 0)
         self.button2.grid(row = 1, column = 0)
         self.button3.grid(row = 2, column = 0)
+        self.button4.grid(row = 3, column = 0)
 
 def str_to_code(object, attr):
     return getattr(object, attr)
 
 class crime_result:
-    def __init__(self, main_screen, jaar):
+    def __init__(self, main_screen, jaar, soort):
         for wijk in d.get_areas("criminaliteit", jaar):
             a = wijk[0]
-            result = d.get_crime_data("average", jaar, ("'" + a + "'"))
-            if result > 15:
-                canvas.itemconfig(str_to_code(main_screen, str(a)).shape, fill=c.red1())
-            elif result > 10 and result < 15:
-                canvas.itemconfig(str_to_code(main_screen, str(a)).shape, fill=c.red3())
-            elif result > 5 and result < 10:
-                canvas.itemconfig(str_to_code(main_screen, str(a)).shape, fill=c.red5())
-            else:
-                canvas.itemconfig(str_to_code(main_screen, str(a)).shape, fill=(str_to_code(main_screen, str(a)).color))
+            result = d.get_crime_data(soort, jaar, ("'" + a + "'"))
+            canvas.itemconfig(str_to_code(main_screen, str(a)).shape, fill = c.rgb_to_hex(result, (255, 0 ,0), 20))
 
-def create_crime_result_2009():
+def create_average_crime_result_2009():
     remove_extra_images()
-    crime_result(map, "'2009'")
+    crime_result(map, "'2009'", "average")
     politiebureau()
 
-def create_crime_result_2011():
+def create_average_crime_result_2011():
     remove_extra_images()
-    crime_result(map, "'2011'")
+    crime_result(map, "'2011'", "average")
     politiebureau()
 
 def politiebureau():
@@ -90,7 +85,7 @@ class Area:
 map = Standaard_Kaart(c.grey(), "white")
 def mainLoop():
     canvas.grid()
-    canvas.grid(row=0, column=1,rowspan = 3)
+    canvas.grid(row=0, column=1,rowspan = 4)
     tk.mainloop() 
 
 mainLoop()
