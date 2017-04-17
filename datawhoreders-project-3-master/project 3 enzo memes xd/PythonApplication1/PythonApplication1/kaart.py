@@ -88,7 +88,7 @@ class crime_result:
         for wijk in d.get_areas("criminaliteit", jaar):
             a = wijk[0]
             result = d.get_crime_data(soort, jaar, ("'" + a + "'"))
-            canvas.itemconfig(str_to_code(main_screen, str(a)).shape, fill = c.rgb_to_hex(result, (255, 0 ,0), 20, True))
+            canvas.itemconfig(str_to_code(main_screen, str(a)).shape, fill = c.rgb_to_hex(result, (255, 0 ,0), 35, True))
 
 class metro_result:
     def __init__(self, main_screen):
