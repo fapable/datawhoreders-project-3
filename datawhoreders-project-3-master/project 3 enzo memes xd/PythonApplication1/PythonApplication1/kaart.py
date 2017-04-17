@@ -1,7 +1,7 @@
 from tkinter import *
 import colors as c
 import pliesiebureaus as pb
-from database import Database as d   
+from database import Database as d 
 import grafieken as g
 import matplotlib.pyplot as plt
 
@@ -13,7 +13,7 @@ width = 1280
 height = 720
 canvas = Canvas(tk, width=width, height=height)
 kaart = PhotoImage(file = "kaart4.gif")
-canvas.create_image(905,355,image=kaart)
+canvas.create_image(405,355,image=kaart) #alles -500
 
 class Standaard_Kaart:
     def __init__(self, area_color, text_color):
@@ -85,14 +85,14 @@ def str_to_code(object, attr):
 
 class crime_result:
     def __init__(self, main_screen, jaar, soort):
-        for wijk in d.get_areas("criminaliteit", jaar):
+        for wijk in d.get_areas("criminaliteit"):
             a = wijk[0]
             result = d.get_crime_data(soort, jaar, ("'" + a + "'"))
             canvas.itemconfig(str_to_code(main_screen, str(a)).shape, fill = c.rgb_to_hex(result, (255, 0 ,0), 35, True))
 
 class metro_result:
     def __init__(self, main_screen):
-        for wijk in d.get_areas("metro", None):
+        for wijk in d.get_areas("metro"):
             a = wijk[0]
             info = d.get_metro_info(("'" + a + "'"))[0]
             if info[1] != None:
@@ -105,93 +105,109 @@ def create_average_crime_result_2009():
     remove_extra_images()
     crime_result(map, "'2009'", "average")
     politiebureau()
-    g.crime_graph_2009()
+    g.create_crime_graph("'2009'", "average")
 
 def create_average_crime_result_2011():
     remove_extra_images()
     crime_result(map, "'2011'", "average")
     politiebureau()
-    g.crime_graph_2011()
+    g.create_crime_graph("'2011'", "average")
 
 def create_diefstal_crime_result_2009():
     remove_extra_images()
     crime_result(map, "'2009'", "diefstal")
     politiebureau()
+    g.create_crime_graph("'2009'", "diefstal")
 
 def create_drugsoverlast_crime_result_2009():
     remove_extra_images()
     crime_result(map, "'2009'", "drugsoverlast")
     politiebureau()
+    g.create_crime_graph("'2009'", "drugsoverlast")
 
 def create_geweld_crime_result_2009():
     remove_extra_images()
     crime_result(map, "'2009'", "geweld")
     politiebureau()
+    g.create_crime_graph("'2009'", "geweld")
 
 def create_inbraak_crime_result_2009():
     remove_extra_images()
     crime_result(map, "'2009'", "inbraak")
     politiebureau()
+    g.create_crime_graph("'2009'", "inbraak")
 
 def create_vandalisme_crime_result_2009():
     remove_extra_images()
     crime_result(map, "'2009'", "vandalisme")
     politiebureau()
+    g.create_crime_graph("'2009'", "vandalisme")
 
 def create_overlast_crime_result_2009():
     remove_extra_images()
     crime_result(map, "'2009'", "overlast")
     politiebureau()
+    g.create_crime_graph("'2009'", "overlast")
 
 def create_vervuiling_crime_result_2009():
     remove_extra_images()
     crime_result(map, "'2009'", "vervuiling")
     politiebureau()
+    g.create_crime_graph("'2009'", "vervuiling")
 
 def create_verkeer_crime_result_2009():
     remove_extra_images()
     crime_result(map, "'2009'", "verkeer")
     politiebureau()
+    g.create_crime_graph("'2009'", "verkeer")
 
 def create_diefstal_crime_result_2011():
     remove_extra_images()
     crime_result(map, "'2011'", "diefstal")
     politiebureau()
+    g.create_crime_graph("'2011'", "diefstal")
 
 def create_drugsoverlast_crime_result_2011():
     remove_extra_images()
     crime_result(map, "'2011'", "drugsoverlast")
     politiebureau()
+    g.create_crime_graph("'2011'", "drugsoverlast")
 
 def create_geweld_crime_result_2011():
     remove_extra_images()
     crime_result(map, "'2011'", "geweld")
     politiebureau()
+    g.create_crime_graph("'2011'", "geweld")
 
 def create_inbraak_crime_result_2011():
     remove_extra_images()
     crime_result(map, "'2011'", "inbraak")
     politiebureau()
+    g.create_crime_graph("'2011'", "inbraak")
 
 def create_vandalisme_crime_result_2011():
     remove_extra_images()
     crime_result(map, "'2011'", "vandalisme")
     politiebureau()
+    g.create_crime_graph("'2011'", "vandalisme")
 
 def create_overlast_crime_result_2011():
     remove_extra_images()
     crime_result(map, "'2011'", "overlast")
     politiebureau()
+    g.create_crime_graph("'2011'", "overlast")
 
 def create_vervuiling_crime_result_2011():
     remove_extra_images()
     crime_result(map, "'2011'", "vervuiling")
     politiebureau()
+    g.create_crime_graph("'2011'", "vervuiling")
 
 def create_verkeer_crime_result_2011():
     remove_extra_images()
     crime_result(map, "'2011'", "verkeer")
     politiebureau()
+    g.create_crime_graph("'2011'", "verkeer")
 
 
 

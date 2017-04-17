@@ -5,63 +5,35 @@ import matplotlib
 
 matplotlib.rcParams['toolbar'] = 'None'
 
-class crime_graph_2009:
-    def __init__(self):
+class create_crime_graph:
+    def __init__(self, jaar, soort):
         N = 10
-        criminaliteit2009 = (d.get_crime_data("average" ,"'2009'", "'Charlois'"),d.get_crime_data("average","'2009'", "'Delfshaven'") , d.get_crime_data("average" ,"2009", "'Feijenoord'"), d.get_crime_data("average" ,"2009", "'Hillegersberg_Schiebroek'"), d.get_crime_data("average","2009", "'Ijsselmonde'"), d.get_crime_data("average" ,"2009", "'Kralingen_Crooswijk'"), d.get_crime_data("average" ,"2009", "'Noord'"), d.get_crime_data("average","2009", "'Overschie'"), d.get_crime_data("average" ,"2009", "'Prins_Alexander'"), d.get_crime_data("average" ,"2009", "'Centrum'"))
-        criminaliteit2009_std = (1, 1, 1, 0, 1, 1, 1, 1, 1, 1)
-        ind = np.arange(N)  # the x locations for the groups
-        width = 0.35       # the width of the bars
+        crime = []
+        police = []
+        for wijk in d.get_areas("criminaliteit"):
+            a = wijk[0]
+            result = d.get_crime_data(soort, jaar, ("'" + a + "'"))
+            crime.append(result)
+            bureaus = d.get_police_data(("'" + a + "'"))
+            police.append(bureaus)
+        tuple_result = tuple(crime)
+        tuple_police = tuple(police)
+        ind = np.arange(N)
+        width = 0.35
         fig, ax = plt.subplots()
-        rects1 = ax.bar(ind, criminaliteit2009, width, color='r', yerr=criminaliteit2009_std)
-        politiebureaus = (d.get_police_data("politiebureau", "politiebureaus", "'Charlois'"), d.get_police_data("politiebureau", "politiebureaus", "'Delfshaven'"), d.get_police_data("politiebureau", "politiebureaus", "'Feijenoord'"), d.get_police_data("politiebureau", "politiebureaus", "'Hillegersberg-Schiebroek'"), d.get_police_data("politiebureau", "politiebureaus", "'Ijsselmonde'"), d.get_police_data("politiebureau", "politiebureaus", "'Kralingen-Crooswijk'"), d.get_police_data("politiebureau", "politiebureaus", "'Noord'"), d.get_police_data("politiebureau", "politiebureaus", "'Overschie'"), d.get_police_data("politiebureau", "politiebureaus", "'Prins-Alexander'"), d.get_police_data("politiebureau", "politiebureaus", "'Centrum'"))
-        politiebureaus_std = (1, 1, 1, 1, 1, 1, 1, 1, 1, 1)
-        rects2 = ax.bar(ind + width, politiebureaus, width, color='b', yerr=politiebureaus_std)
-        # add some text for labels, title and axes ticks
-        ax.set_ylabel('% criminaliteit/het aantal politiebureaus')
-        ax.set_title('Het gemiddelde percentage van criminaliteit en het aantal politiebureas per wijk (2009)')
+        rects1 = ax.bar(ind, tuple_result, width, color = "r")
+        rects2 = ax.bar(ind + width, tuple_police, width, color = "b")
+        ax.set_ylabel("% criminaliteit/het aantal politiebureaus")
+        ax.set_title("Percentage " + str(soort) + " criminaliteit + aantal politiebureaus " + str(jaar))
         ax.set_xticks(ind + width / 2)
-        ax.set_xticklabels(('Charlois', 'Delfshaven', 'Feijenoord', 'Hillegersberg-Schiebroek', 'Ijsselmonde', 'Kralingen-Crooswijk', 'Noord', 'Overschie', 'Prins-Alexander', 'Centrum'))
-        ax.legend((rects1[0], rects2[0]), ('Percentage criminaliteit', 'Het aantal politiebureaus'))
+        ax.set_xticklabels(("Charlois", "Delfshaven", "Feijenoord", "Hillegersberg_Schiebroek", "Ijsselmonde", "Kralingen_Crooswijk", "Noord", "Overschie", "Prins_Alexander", "Centrum"))
+        ax.legend((rects1[0], rects2[0]), ("Percentage criminaliteit", "Aantal politiebureaus"))
 
         def autolabel(rects):
             for rect in rects:
                 height = rect.get_height()
-                ax.text(rect.get_x() + rect.get_width()/2., 1.05*height,
-                        '%d' % int(height),
-                        ha='center', va='bottom')
+                ax.text(rect.get_x() + rect.get_width()/2., height, '%d' % int(height), ha='center', va='bottom')
 
         autolabel(rects1)
         autolabel(rects2)
-        plt.show()
-
-class crime_graph_2011:
-    def __init__(self):
-        N = 10
-        criminaliteit2011 = (d.get_crime_data("average","2011", "'Charlois'"),d.get_crime_data("average", "2011", "'Delfshaven'") , d.get_crime_data("average", "2011", "'Feijenoord'"), d.get_crime_data("average", "2011", "'Hillegersberg_Schiebroek'"), d.get_crime_data("average" ,"2011", "'Ijsselmonde'"), d.get_crime_data("average", "2011", "'Kralingen_Crooswijk'"), d.get_crime_data("average", "2011", "'Noord'"), d.get_crime_data("average", "2011", "'Overschie'"), d.get_crime_data("average", "2011", "'Prins_Alexander'"), d.get_crime_data("average", "2011", "'Centrum'"))
-        criminaliteit2011_std = (1, 1, 1, 0, 1, 1, 1, 1, 1, 1)
-        ind = np.arange(N)  # the x locations for the groups
-        width = 0.35       # the width of the bars
-        fig, ax = plt.subplots()
-        rects1 = ax.bar(ind, criminaliteit2011, width, color='r', yerr=criminaliteit2011_std)
-        politiebureaus = (d.get_police_data("politiebureau", "politiebureaus", "'Charlois'"), d.get_police_data("politiebureau", "politiebureaus", "'Delfshaven'"), d.get_police_data("politiebureau", "politiebureaus", "'Feijenoord'"), d.get_police_data("politiebureau", "politiebureaus", "'Hillegersberg-Schiebroek'"), d.get_police_data("politiebureau", "politiebureaus", "'Ijsselmonde'"), d.get_police_data("politiebureau", "politiebureaus", "'Kralingen-Crooswijk'"), d.get_police_data("politiebureau", "politiebureaus", "'Noord'"), d.get_police_data("politiebureau", "politiebureaus", "'Overschie'"), d.get_police_data("politiebureau", "politiebureaus", "'Prins-Alexander'"), d.get_police_data("politiebureau", "politiebureaus", "'Centrum'"))
-        politiebureaus_std = (1, 1, 1, 1, 1, 1, 1, 1, 1, 1)
-        rects2 = ax.bar(ind + width, politiebureaus, width, color='b', yerr=politiebureaus_std)
-        # add some text for labels, title and axes ticks
-        ax.set_ylabel('% criminaliteit/het aantal politiebureaus')
-        ax.set_title('Het gemiddelde percentage van criminaliteit en het aantal politiebureas per wijk (2011)')
-        ax.set_xticks(ind + width / 2)
-        ax.set_xticklabels(('Charlois', 'Delfshaven', 'Feijenoord', 'Hillegersberg-Schiebroek', 'Ijsselmonde', 'Kralingen-Crooswijk', 'Noord', 'Overschie', 'Prins-Alexander', 'Centrum'))
-        ax.legend((rects1[0], rects2[0]), ('Percentage criminaliteit', 'Het aantal politiebureaus'))
-
-        def autolabel(rects):
-            for rect in rects:
-                height = rect.get_height()
-                ax.text(rect.get_x() + rect.get_width()/2., 1.05*height,'%d' % int(height),ha='center', va='bottom')
-
-        autolabel(rects1)
-        autolabel(rects2)
-        plt.show()
-
-
-
+        plt.show()(edited)
