@@ -39,24 +39,24 @@ class Standaard_Kaart:
         self.centrumTxt = canvas.create_text(860,350,fill = text_color,text="Centrum")
         self.button01 = Button(tk, text = "Criminaliteit 2009", command = create_average_crime_result_2009, bg = "white", fg = "black")
         self.button02 = Button(tk, text = "Criminaliteit 2011", command = create_average_crime_result_2011, bg = "white", fg = "black")
-        self.button03 = Button(tk, text = "Question 3", command = None, bg = "white", fg = "black")
-        self.button04 = Button(tk, text = "Concentratie metrostations", command = create_metro_result, bg = "white", fg = "black")
-        self.button05 = Button(tk, text = "", command = None, bg = "white", fg = "black")
-        self.button06 = Button(tk, text = "", command = None, bg = "white", fg = "black")
-        self.button07 = Button(tk, text = "", command = None, bg = "white", fg = "black")
-        self.button08 = Button(tk, text = "", command = None, bg = "white", fg = "black")
-        self.button09 = Button(tk, text = "", command = None, bg = "white", fg = "black")
-        self.button10 = Button(tk, text = "", command = None, bg = "white", fg = "black")
-        self.button11 = Button(tk, text = "", command = None, bg = "white", fg = "black")
-        self.button12 = Button(tk, text = "", command = None, bg = "white", fg = "black")
-        self.button13 = Button(tk, text = "", command = None, bg = "white", fg = "black")
-        self.button14 = Button(tk, text = "", command = None, bg = "white", fg = "black")
-        self.button15 = Button(tk, text = "", command = None, bg = "white", fg = "black")
-        self.button16 = Button(tk, text = "", command = None, bg = "white", fg = "black")
-        self.button17 = Button(tk, text = "", command = None, bg = "white", fg = "black")
-        self.button18 = Button(tk, text = "", command = None, bg = "white", fg = "black")
-        self.button19 = Button(tk, text = "", command = None, bg = "white", fg = "black")
-        self.button20 = Button(tk, text = "", command = None, bg = "white", fg = "black")
+        self.button03 = Button(tk, text = "Diefstal 2009", command = create_diefstal_crime_result_2009, bg = "white", fg = "black")
+        self.button04 = Button(tk, text = "Diefstal 2011", command = create_diefstal_crime_result_2011, bg = "white", fg = "black")
+        self.button05 = Button(tk, text = "Drugsoverlast 2009", command = create_drugsoverlast_crime_result_2009, bg = "white", fg = "black")
+        self.button06 = Button(tk, text = "Drugsoverlast 2011", command = create_drugsoverlast_crime_result_2011, bg = "white", fg = "black")
+        self.button07 = Button(tk, text = "Geweld 2009", command = create_geweld_crime_result_2009, bg = "white", fg = "black")
+        self.button08 = Button(tk, text = "Geweld 2011", command = create_geweld_crime_result_2011, bg = "white", fg = "black")
+        self.button09 = Button(tk, text = "Inbraak 2009", command = create_inbraak_crime_result_2009, bg = "white", fg = "black")
+        self.button10 = Button(tk, text = "Inbraak 2011", command = create_inbraak_crime_result_2011, bg = "white", fg = "black")
+        self.button11 = Button(tk, text = "Vandalisme 2009", command = create_vandalisme_crime_result_2009, bg = "white", fg = "black")
+        self.button12 = Button(tk, text = "Vandalisme 2011", command = create_vandalisme_crime_result_2011, bg = "white", fg = "black")
+        self.button13 = Button(tk, text = "Overlast 2009", command = create_overlast_crime_result_2009, bg = "white", fg = "black")
+        self.button14 = Button(tk, text = "Overlast 2011", command = create_overlast_crime_result_2011, bg = "white", fg = "black")
+        self.button15 = Button(tk, text = "Vervuiling 2009", command = create_vervuiling_crime_result_2009, bg = "white", fg = "black")
+        self.button16 = Button(tk, text = "Vervuiling 2011", command = create_vervuiling_crime_result_2011, bg = "white", fg = "black")
+        self.button17 = Button(tk, text = "Verkeer 2009", command = create_verkeer_crime_result_2009, bg = "white", fg = "black")
+        self.button18 = Button(tk, text = "Verkeer 2011", command = create_verkeer_crime_result_2011, bg = "white", fg = "black")
+        self.button19 = Button(tk, text = "Question 3", command = None, bg = "white", fg = "black")
+        self.button20 = Button(tk, text = "Concentratie metrostations", command = create_metro_result, bg = "white", fg = "black")
         self.button01.grid(row = 0, column = 0)
         self.button02.grid(row = 1, column = 0)
         self.button03.grid(row = 2, column = 0)
@@ -112,6 +112,89 @@ def create_average_crime_result_2011():
     crime_result(map, "'2011'", "average")
     politiebureau()
     g.crime_graph_2011()
+
+def create_diefstal_crime_result_2009():
+    remove_extra_images()
+    crime_result(map, "'2009'", "diefstal")
+    politiebureau()
+
+def create_drugsoverlast_crime_result_2009():
+    remove_extra_images()
+    crime_result(map, "'2009'", "drugsoverlast")
+    politiebureau()
+
+def create_geweld_crime_result_2009():
+    remove_extra_images()
+    crime_result(map, "'2009'", "geweld")
+    politiebureau()
+
+def create_inbraak_crime_result_2009():
+    remove_extra_images()
+    crime_result(map, "'2009'", "inbraak")
+    politiebureau()
+
+def create_vandalisme_crime_result_2009():
+    remove_extra_images()
+    crime_result(map, "'2009'", "vandalisme")
+    politiebureau()
+
+def create_overlast_crime_result_2009():
+    remove_extra_images()
+    crime_result(map, "'2009'", "overlast")
+    politiebureau()
+
+def create_vervuiling_crime_result_2009():
+    remove_extra_images()
+    crime_result(map, "'2009'", "vervuiling")
+    politiebureau()
+
+def create_verkeer_crime_result_2009():
+    remove_extra_images()
+    crime_result(map, "'2009'", "verkeer")
+    politiebureau()
+
+def create_diefstal_crime_result_2011():
+    remove_extra_images()
+    crime_result(map, "'2011'", "diefstal")
+    politiebureau()
+
+def create_drugsoverlast_crime_result_2011():
+    remove_extra_images()
+    crime_result(map, "'2011'", "drugsoverlast")
+    politiebureau()
+
+def create_geweld_crime_result_2011():
+    remove_extra_images()
+    crime_result(map, "'2011'", "geweld")
+    politiebureau()
+
+def create_inbraak_crime_result_2011():
+    remove_extra_images()
+    crime_result(map, "'2011'", "inbraak")
+    politiebureau()
+
+def create_vandalisme_crime_result_2011():
+    remove_extra_images()
+    crime_result(map, "'2011'", "vandalisme")
+    politiebureau()
+
+def create_overlast_crime_result_2011():
+    remove_extra_images()
+    crime_result(map, "'2011'", "overlast")
+    politiebureau()
+
+def create_vervuiling_crime_result_2011():
+    remove_extra_images()
+    crime_result(map, "'2011'", "vervuiling")
+    politiebureau()
+
+def create_verkeer_crime_result_2011():
+    remove_extra_images()
+    crime_result(map, "'2011'", "verkeer")
+    politiebureau()
+
+
+
 
 def create_metro_result():
     remove_extra_images()
