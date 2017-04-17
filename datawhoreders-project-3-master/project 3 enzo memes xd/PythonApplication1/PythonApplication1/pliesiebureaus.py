@@ -1,17 +1,3 @@
-from tkinter import *
-
-
-
-def politiebureau():
-    import kaart as k
-    pimg = PhotoImage(file = "wouten.gif")
-    k.canvas.create_image(895, 305, image = pimg) #Doelwater (Hoofdbureau), pimg = politieimage
-    k.canvas.create_image(900, 260, image = pimg) #Zaagmolenstraat
-    k.canvas.create_image(925, 292, image = pimg) #Bureau Boezemsingel
-    k.canvas.create_image(897, 230, image = pimg) #Noord
-    k.canvas.create_image(960, 297, image = pimg) #Taborstraat
-    k.canvas.create_image(926, 390, image = pimg) #Maashaven
-
 #1080p
 #overschie = polygon(c.red0(),(904,194,947,183,955,205,1106,109,1176,199,1222,163,1242,185,1237,355,1109,432,1138,471,1057,479,1017,403,1059,350,1050,345,1003,366,964,322,949,342))
 #hillegersberg = polygon("blue",(1242,185,1237,355,1520,282,1499,189,1475,213,1432,195,1428,172,1387,141,1382,154,1280,90))

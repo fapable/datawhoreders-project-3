@@ -1,6 +1,9 @@
 from database import Database as d
 import numpy as np
 import matplotlib.pyplot as plt
+import matplotlib
+
+matplotlib.rcParams['toolbar'] = 'None'
 
 class crime_graph_2009:
     def __init__(self):
