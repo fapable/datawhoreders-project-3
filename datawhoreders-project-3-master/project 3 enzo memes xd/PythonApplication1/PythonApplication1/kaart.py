@@ -82,10 +82,16 @@ def create_average_crime_result_2011():
 def create_metro_result():
     remove_extra_images()
     metro_result(map)
-    global ming
-    ming = PhotoImage(file = "metro.gif")
+    metro_stations()
+
+def metro_stations():
+    global mimg
+    mimg = PhotoImage(file = "metro.gif")
+    global mlimg
+    mlimg = PhotoImage(file = "Metro_legenda.gif")
     for item in d.metro_coordinaten():
-        canvas.create_image(item[0], item[1], image = ming)
+        canvas.create_image(item[0], item[1], image = mimg)
+    canvas.create_image((width - (mlimg.width()/2)), (height - (mlimg.height()/2)), image = mlimg)
 
 def politiebureau():
     global pimg 
@@ -101,6 +107,11 @@ def remove_extra_images():
     try:
         pimg.__del__()
         climg.__del__()
+    except(NameError):
+        pass
+    try:
+        mimg.__del__()
+        mlimg.__del__()
     except(NameError):
         pass
         
