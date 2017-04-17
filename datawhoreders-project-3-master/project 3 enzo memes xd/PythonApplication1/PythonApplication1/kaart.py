@@ -37,10 +37,10 @@ class Standaard_Kaart:
         self.prins_alexanderTxt = canvas.create_text(1060,170,fill = text_color,text="Prins Alexander")
         self.Centrum =  Area(area_color, (841,409,829,372,815,369,831,359,829,307,804,308,805,303,859,295,891,303,921,307,931,333,917,337,881,383))
         self.centrumTxt = canvas.create_text(860,350,fill = text_color,text="Centrum")
-        self.button1 = Button(tk, text = "Question 1", command = create_average_crime_result_2009, bg = "white", fg = "black")
-        self.button2 = Button(tk, text = "Question 2", command = create_average_crime_result_2011, bg = "white", fg = "black")
+        self.button1 = Button(tk, text = "Criminaliteit 2009", command = create_average_crime_result_2009, bg = "white", fg = "black")
+        self.button2 = Button(tk, text = "Criminaliteit 2011", command = create_average_crime_result_2011, bg = "white", fg = "black")
         self.button3 = Button(tk, text = "Question 3", command = None, bg = "white", fg = "black")
-        self.button4 = Button(tk, text = "Question 4", command = create_metro_result, bg = "white", fg = "black")
+        self.button4 = Button(tk, text = "Concentratie metrostations", command = create_metro_result, bg = "white", fg = "black")
         self.button1.grid(row = 0, column = 0)
         self.button2.grid(row = 1, column = 0)
         self.button3.grid(row = 2, column = 0)
@@ -82,6 +82,10 @@ def create_average_crime_result_2011():
 def create_metro_result():
     remove_extra_images()
     metro_result(map)
+    global ming
+    ming = PhotoImage(file = "metro.gif")
+    for item in d.metro_coordinaten():
+        canvas.create_image(item[0], item[1], image = ming)
 
 def politiebureau():
     global pimg 
