@@ -26,7 +26,10 @@ class create_crime_graph:
         ax.set_ylabel("% criminaliteit/het aantal politiebureaus")
         ax.set_title("Percentage " + str(soort) + " criminaliteit + aantal politiebureaus " + str(jaar))
         ax.set_xticks(ind + width / 2)
-        ax.set_xticklabels(("Charlois", "Delfshaven", "Feijenoord", "Hillegersberg_Schiebroek", "Ijsselmonde", "Kralingen_Crooswijk", "Noord", "Overschie", "Prins_Alexander", "Centrum"))
+        volgorde = []
+        for wijk in d.get_areas("criminaliteit"):
+            volgorde.append(wijk[0])
+        ax.set_xticklabels(tuple(volgorde))
         ax.legend((rects1[0], rects2[0]), ("Percentage criminaliteit", "Aantal politiebureaus"))
 
         def autolabel(rects):
@@ -36,4 +39,4 @@ class create_crime_graph:
 
         autolabel(rects1)
         autolabel(rects2)
-        plt.show()(edited)
+        plt.show()
