@@ -2,8 +2,8 @@ from tkinter import *
 import colors as c
 import pliesiebureaus as pb
 from database import Database as d   
-import grafiek2009  
-from grafiek2009 import crime_graph_2009
+import grafieken as g
+import matplotlib.pyplot as plt
 
 tk = Tk()
 tk.resizable(width=False, height=False)
@@ -71,12 +71,13 @@ def create_average_crime_result_2009():
     remove_extra_images()
     crime_result(map, "'2009'", "average")
     politiebureau()
-    crime_graph_2009()
+    g.crime_graph_2009()
 
 def create_average_crime_result_2011():
     remove_extra_images()
     crime_result(map, "'2011'", "average")
     politiebureau()
+    g.crime_graph_2011()
 
 def create_metro_result():
     remove_extra_images()
@@ -92,6 +93,7 @@ def politiebureau():
     canvas.create_image((width - (climg.width()/2)), (height - (climg.height()/2)), image = climg)
 
 def remove_extra_images():
+    plt.close()
     try:
         pimg.__del__()
         climg.__del__()

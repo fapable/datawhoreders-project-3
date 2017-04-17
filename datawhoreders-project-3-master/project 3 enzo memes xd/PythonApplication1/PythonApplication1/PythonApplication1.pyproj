@@ -25,7 +25,7 @@
     <Compile Include="database.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="grafiek2009.py" />
+    <Compile Include="grafieken.py" />
     <Compile Include="grafiek2011.py" />
     <Compile Include="kaart.py">
       <SubType>Code</SubType>
