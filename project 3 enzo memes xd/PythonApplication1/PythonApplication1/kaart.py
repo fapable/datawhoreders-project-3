@@ -9,7 +9,7 @@ tk = Tk()
 tk.resizable(width=False, height=False)
 tk.title("( ͡° ͜ʖ ͡°)")
 
-width = 780
+width = 1280
 height = 720
 canvas = Canvas(tk, width=width, height=height)
 kaart = PhotoImage(file = "kaart4.gif")
@@ -55,7 +55,7 @@ class Standaard_Kaart:
         self.button16 = Button(tk, text = "Vervuiling 2011", command = create_vervuiling_crime_result_2011, bg = "white", fg = "black", width=24)
         self.button17 = Button(tk, text = "Verkeer 2009", command = create_verkeer_crime_result_2009, bg = "white", fg = "black", width=24)
         self.button18 = Button(tk, text = "Verkeer 2011", command = create_verkeer_crime_result_2011, bg = "white", fg = "black", width=24)
-        self.button19 = Button(tk, text = "Question 3", command = None, bg = "white", fg = "black", width=24)
+        self.button19 = Button(tk, text = "Marktparkeermogelijkheden", command = create_markt_result, bg = "white", fg = "black", width=24)
         self.button20 = Button(tk, text = "Concentratie metrostations", command = create_metro_result, bg = "white", fg = "black", width=24)
         self.button01.grid(row = 0, column = 0)
         self.button02.grid(row = 1, column = 0)
@@ -90,6 +90,19 @@ class crime_result:
             result = d.get_crime_data(soort, jaar, ("'" + a + "'"))
             canvas.itemconfig(str_to_code(main_screen, str(a)).shape, fill = c.rgb_to_hex(result, (255, 0 ,0), 35, True))
 
+class markt_result:
+    def __init__(self, main_screen):
+        data = d.get_markt_data()
+        for wijk in data:
+            a = wijk[0]
+            try:
+                result = wijk[2]/wijk[1]
+                canvas.itemconfig(str_to_code(main_screen, str(a)).shape, fill = c.rgb_to_hex(result, (0, 0, 255), 760, True))
+            except(ZeroDivisionError):
+                canvas.itemconfig(str_to_code(main_screen, str(a)).shape, fill = str_to_code(main_screen, str(a)).color)
+            canvas.itemconfig(main_screen.Overschie.shape, fill = c.rgb_to_hex(1, (0, 0, 255), 1, False))
+
+
 class metro_result:
     def __init__(self, main_screen):
         for wijk in d.get_areas("metro"):
@@ -100,6 +113,10 @@ class metro_result:
                 canvas.itemconfig(str_to_code(main_screen, str(a)).shape, fill = c.rgb_to_hex(result, (0, 255, 0), 2, False))
             else:
                 canvas.itemconfig(str_to_code(main_screen, str(a)).shape, fill = str_to_code(main_screen, str(a)).color)
+
+def create_markt_result():
+    remove_extra_images()
+    markt_result(map)
 
 def create_average_crime_result_2009():
     remove_extra_images()
