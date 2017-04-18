@@ -55,7 +55,7 @@ class Standaard_Kaart:
         self.button16 = Button(tk, text = "Vervuiling 2011", command = create_vervuiling_crime_result_2011, bg = "white", fg = "black", width=24)
         self.button17 = Button(tk, text = "Verkeer 2009", command = create_verkeer_crime_result_2009, bg = "white", fg = "black", width=24)
         self.button18 = Button(tk, text = "Verkeer 2011", command = create_verkeer_crime_result_2011, bg = "white", fg = "black", width=24)
-        self.button19 = Button(tk, text = "Question 3", command = None, bg = "white", fg = "black", width=24)
+        self.button19 = Button(tk, text = "Marktparkeermogelijkheden", command = create_markt_result, bg = "white", fg = "black", width=24)
         self.button20 = Button(tk, text = "Concentratie metrostations", command = create_metro_result, bg = "white", fg = "black", width=24)
         self.button01.grid(row = 0, column = 0)
         self.button02.grid(row = 1, column = 0)
@@ -78,8 +78,6 @@ class Standaard_Kaart:
         self.button19.grid(row = 18, column = 0)
         self.button20.grid(row = 19, column = 0)
 
-
-
 def str_to_code(object, attr):
     return getattr(object, attr)
 
@@ -89,6 +87,18 @@ class crime_result:
             a = wijk[0]
             result = d.get_crime_data(soort, jaar, ("'" + a + "'"))
             canvas.itemconfig(str_to_code(main_screen, str(a)).shape, fill = c.rgb_to_hex(result, (255, 0 ,0), 35, True))
+
+class markt_result:
+    def __init__(self, main_screen):
+        data = d.get_markt_data()
+        for wijk in data:
+            a = wijk[0]
+            try:
+                result = wijk[2]/wijk[1]
+                canvas.itemconfig(str_to_code(main_screen, str(a)).shape, fill = c.rgb_to_hex(result, (0, 0, 255), 760, True))
+            except(ZeroDivisionError):
+                canvas.itemconfig(str_to_code(main_screen, str(a)).shape, fill = str_to_code(main_screen, str(a)).color)
+            canvas.itemconfig(main_screen.Overschie.shape, fill = c.rgb_to_hex(1, (0, 0, 255), 1, False))
 
 class metro_result:
     def __init__(self, main_screen):
@@ -101,116 +111,118 @@ class metro_result:
             else:
                 canvas.itemconfig(str_to_code(main_screen, str(a)).shape, fill = str_to_code(main_screen, str(a)).color)
 
+def create_markt_result():
+    remove_extra_images()
+    markt_result(map)
+    markten()
+
 def create_average_crime_result_2009():
     remove_extra_images()
     crime_result(map, "'2009'", "average")
-    politiebureau()
+    politiebureau("Average cime")
     g.create_crime_graph("'2009'", "average")
 
 def create_average_crime_result_2011():
     remove_extra_images()
     crime_result(map, "'2011'", "average")
-    politiebureau()
+    politiebureau("Average crime")
     g.create_crime_graph("'2011'", "average")
 
 def create_diefstal_crime_result_2009():
     remove_extra_images()
     crime_result(map, "'2009'", "diefstal")
-    politiebureau()
+    politiebureau("Diefstal")
     g.create_crime_graph("'2009'", "diefstal")
 
 def create_drugsoverlast_crime_result_2009():
     remove_extra_images()
     crime_result(map, "'2009'", "drugsoverlast")
-    politiebureau()
+    politiebureau("Drugsoverlast")
     g.create_crime_graph("'2009'", "drugsoverlast")
 
 def create_geweld_crime_result_2009():
     remove_extra_images()
     crime_result(map, "'2009'", "geweld")
-    politiebureau()
+    politiebureau("Geweld")
     g.create_crime_graph("'2009'", "geweld")
 
 def create_inbraak_crime_result_2009():
     remove_extra_images()
     crime_result(map, "'2009'", "inbraak")
-    politiebureau()
+    politiebureau("Inbraak")
     g.create_crime_graph("'2009'", "inbraak")
 
 def create_vandalisme_crime_result_2009():
     remove_extra_images()
     crime_result(map, "'2009'", "vandalisme")
-    politiebureau()
+    politiebureau("Vandalisme")
     g.create_crime_graph("'2009'", "vandalisme")
 
 def create_overlast_crime_result_2009():
     remove_extra_images()
     crime_result(map, "'2009'", "overlast")
-    politiebureau()
+    politiebureau("Overlast")
     g.create_crime_graph("'2009'", "overlast")
 
 def create_vervuiling_crime_result_2009():
     remove_extra_images()
     crime_result(map, "'2009'", "vervuiling")
-    politiebureau()
+    politiebureau("Vervuiling")
     g.create_crime_graph("'2009'", "vervuiling")
 
 def create_verkeer_crime_result_2009():
     remove_extra_images()
     crime_result(map, "'2009'", "verkeer")
-    politiebureau()
+    politiebureau("Verkeer crime")
     g.create_crime_graph("'2009'", "verkeer")
 
 def create_diefstal_crime_result_2011():
     remove_extra_images()
     crime_result(map, "'2011'", "diefstal")
-    politiebureau()
+    politiebureau("Diefstal")
     g.create_crime_graph("'2011'", "diefstal")
 
 def create_drugsoverlast_crime_result_2011():
     remove_extra_images()
     crime_result(map, "'2011'", "drugsoverlast")
-    politiebureau()
+    politiebureau("Drugsoverlast")
     g.create_crime_graph("'2011'", "drugsoverlast")
 
 def create_geweld_crime_result_2011():
     remove_extra_images()
     crime_result(map, "'2011'", "geweld")
-    politiebureau()
+    politiebureau("Geweld")
     g.create_crime_graph("'2011'", "geweld")
 
 def create_inbraak_crime_result_2011():
     remove_extra_images()
     crime_result(map, "'2011'", "inbraak")
-    politiebureau()
+    politiebureau("Inbraak")
     g.create_crime_graph("'2011'", "inbraak")
 
 def create_vandalisme_crime_result_2011():
     remove_extra_images()
     crime_result(map, "'2011'", "vandalisme")
-    politiebureau()
+    politiebureau("Vandalisme")
     g.create_crime_graph("'2011'", "vandalisme")
 
 def create_overlast_crime_result_2011():
     remove_extra_images()
     crime_result(map, "'2011'", "overlast")
-    politiebureau()
+    politiebureau("Overlast")
     g.create_crime_graph("'2011'", "overlast")
 
 def create_vervuiling_crime_result_2011():
     remove_extra_images()
     crime_result(map, "'2011'", "vervuiling")
-    politiebureau()
+    politiebureau("Vervuiling")
     g.create_crime_graph("'2011'", "vervuiling")
 
 def create_verkeer_crime_result_2011():
     remove_extra_images()
     crime_result(map, "'2011'", "verkeer")
-    politiebureau()
+    politiebureau("Verkeer crime")
     g.create_crime_graph("'2011'", "verkeer")
-
-
-
 
 def create_metro_result():
     remove_extra_images()
@@ -218,6 +230,8 @@ def create_metro_result():
     metro_stations()
 
 def metro_stations():
+    global q3
+    q3 = canvas.create_text(10, 680, anchor = W, font = "Arial", text = "Metrostation density per area in square kilometers")
     global mimg
     mimg = PhotoImage(file = "metro.gif")
     global mlimg
@@ -226,7 +240,9 @@ def metro_stations():
         canvas.create_image(item[0], item[1], image = mimg)
     canvas.create_image((width - (mlimg.width()/2)), (height - (mlimg.height()/2)), image = mlimg)
 
-def politiebureau():
+def politiebureau(soort):
+    global q1
+    q1 = canvas.create_text(10, 680, anchor = W, font = "Arial", text = str(soort) + " in % per area")
     global pimg 
     pimg = PhotoImage(file = "wouten.gif")
     global climg
@@ -235,16 +251,26 @@ def politiebureau():
         canvas.create_image(item[0], item[1], image = pimg)
     canvas.create_image((width - (climg.width()/2)), (height - (climg.height()/2)), image = climg)
 
+def markten():
+    global q2
+    q2 = canvas.create_text(10, 680, anchor = W, font = "Arial", text = "Kans op gratis parkeren bij de markt")
+
 def remove_extra_images():
     plt.close()
     try:
         pimg.__del__()
         climg.__del__()
+        canvas.delete(q1)
+    except(NameError):
+        pass
+    try: 
+        canvas.delete(q2)
     except(NameError):
         pass
     try:
         mimg.__del__()
         mlimg.__del__()
+        canvas.delete(q3)
     except(NameError):
         pass
         

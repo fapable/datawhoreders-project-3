@@ -5,15 +5,15 @@ Wijk VARCHAR(19),
 X INT,
 Y INT);
 
-INSERT INTO Politiebureaus VALUES ('Doelwater','Doelwater 5','Centrum', 895, 305); 
-INSERT INTO Politiebureaus VALUES ('Zaagmolenstraat','Zaagmolenstraat 91','Kralingen_Crooswijk', 900, 260); 
-INSERT INTO Politiebureaus VALUES ('Noord','Pr. Frederik Hendrikstraat 40','Kralingen_Crooswijk', 897, 230); 
-INSERT INTO Politiebureaus VALUES ('Bureau Boezemsingel','Boezemsingel 12','Kralingen_Crooswijk', 925, 292); 
-INSERT INTO Politiebureaus VALUES ('Taborstraat','Taborstraat 22','Kralingen_Crooswijk', 960, 297); 
-INSERT INTO Politiebureaus VALUES ('Maashaven','Maashaven NZ 5','Feijenoord', 926, 390);
-INSERT INTO Politiebureaus VALUES ('Marconiplein','Schiedamseweg 400','Delfshaven', 780, 345); 
-INSERT INTO Politiebureaus VALUES ('Overschie','Burg. Baumannlaan 180','Overschie', 770, 260); 
-INSERT INTO Politiebureaus VALUES ('Zuidplein','Zuidplein 111','Charlois', 917, 440); 
-INSERT INTO Politiebureaus VALUES ('De Veranda','Cor Kieboomplein 475','Ijsselmonde', 990, 410); 
-INSERT INTO Politiebureaus VALUES ('Sandelingplein','Groene Hilledijk 275','Feijenoord', 950, 438); 
-INSERT INTO Politiebureaus VALUES ('J.J.P. Oudsingel','Dr. JJP Oudsingel 1','Prins_Alexander', 1058, 205); 
+INSERT INTO Politiebureaus VALUES ('Doelwater','Doelwater 5','Centrum', 395, 305);
+INSERT INTO Politiebureaus VALUES ('Zaagmolenstraat','Zaagmolenstraat 91','Noord', 400, 260);
+INSERT INTO Politiebureaus VALUES ('Noord','Pr. Frederik Hendrikstraat 40','Noord', 397, 230);
+INSERT INTO Politiebureaus VALUES ('Bureau Boezemsingel','Boezemsingel 12','Kralingen-Crooswijk', 425, 292);
+INSERT INTO Politiebureaus VALUES ('Taborstraat','Taborstraat 22','Kralingen-Crooswijk', 460, 297);
+INSERT INTO Politiebureaus VALUES ('Maashaven','Maashaven NZ 5','Feijenoord', 426, 390);
+INSERT INTO Politiebureaus VALUES ('Marconiplein','Schiedamseweg 400','Delfshaven', 280, 345);
+INSERT INTO Politiebureaus VALUES ('Overschie','Burg. Baumannlaan 180','Overschie', 270, 260);
+INSERT INTO Politiebureaus VALUES ('Zuidplein','Zuidplein 111','Charlois', 417, 440);
+INSERT INTO Politiebureaus VALUES ('De Veranda','Cor Kieboomplein 475','Feijenoord', 490, 410);
+INSERT INTO Politiebureaus VALUES ('Sandelingplein','Groene Hilledijk 275','Feijenoord', 450, 438);
+INSERT INTO Politiebureaus VALUES ('J.J.P. Oudsingel','Dr. JJP Oudsingel 1','Prins Alexander', 558, 205);
