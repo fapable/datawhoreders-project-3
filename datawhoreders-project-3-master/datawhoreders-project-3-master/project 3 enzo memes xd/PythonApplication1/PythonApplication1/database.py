@@ -2,7 +2,7 @@ import psycopg2
 
 class Database:  
     def interact_with_database(command):
-        connection = psycopg2.connect(host = "localhost", dbname = "Project 3", user = "postgres", password = "1234")
+        connection = psycopg2.connect(host = "localhost", dbname = "Project 3", user = "postgres", password = "Swagger420")
         cursor = connection.cursor()
         # Execute the command
         cursor.execute(command)
@@ -36,3 +36,6 @@ class Database:
 
     def get_police_data(wijk): #aangepast
         return Database.interact_with_database("SELECT COUNT(politiebureau) FROM politiebureaus WHERE wijk = " + str(wijk))[0][0]
+
+    def get_markt_data():
+        return Database.interact_with_database("SELECT m.wijk, m.aantal_markten, COUNT(p.wijk) FROM markten m, parkeerautomaten p WHERE m.wijk = p.wijk GROUP BY m.wijk, m.aantal_markten")
