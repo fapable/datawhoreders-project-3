@@ -1,7 +1,7 @@
 from tkinter import *
 import colors as c
 import pliesiebureaus as pb
-from database import Database as d 
+from database import Database as d   
 import grafieken as g
 import matplotlib.pyplot as plt
 
@@ -9,54 +9,54 @@ tk = Tk()
 tk.resizable(width=False, height=False)
 tk.title("( ͡° ͜ʖ ͡°)")
 
-width = 780
+width = 1280
 height = 720
 canvas = Canvas(tk, width=width, height=height)
 kaart = PhotoImage(file = "kaart4.gif")
-canvas.create_image(405,355,image=kaart) #alles -500
+canvas.create_image(905,355,image=kaart)
 
 class Standaard_Kaart:
     def __init__(self, area_color, text_color):
-        self.Charlois =  Area(area_color,(341,409,359,428,419,411,415,463,407,465,407,480,445,515,471,549,425,547,377,565,377,579,328,581,274,559,301,549,312,533,301,528,299,509,331,437,317,431,318,413))
-        self.charloisTxt = canvas.create_text(350,500,fill = text_color,text="Charlois")
-        self.Delfshaven =  Area(area_color,(205,319,189,364,199,388,192,407,242,398,318,413,341,409,329,372,315,369,331,359,329,304))
-        self.delfshavnTxt = canvas.create_text(250,360,fill = text_color,text="Delfshaven")
-        self.Feijenoord =  Area(area_color,(431,333,417,337,381,383,341,409,359,428,419,411,415,463,407,465,407,480,445,515,469,490,491,490,497,465,467,403,479,395,469,348))
-        self.feijenoordTxt = canvas.create_text(450,460,fill = text_color,text="Feijenoord")
-        self.Hillegersberg_Schiebroek =  Area(area_color,(328,123,325,237,513,188,499,126,483,142,455,130,452,115,425,94,421,103,353,60))
-        self.hillegersberg_schiebroekTxt = canvas.create_text(415,160,fill = text_color,text="Hillegersberg Schiebroek")
-        self.Ijsselmonde =  Area(area_color,(548,396,493,411,479,395,467,403,497,465,491,490,469,490,445,515,471,549,516,554,549,542,605,511,611,519,621,513,641,404,583,389))
-        self.ijsselmondeTxt = canvas.create_text(550,475,fill = text_color,text="Ijsselmonde")
-        self.Kralingen_Crooswijk =  Area(area_color,(514,188,541,303,525,332,548,396,493,411,479,395,469,348,431,333,421,307,391,303,387,220))
-        self.kralingen_crooswijkTxt = canvas.create_text(460,275,fill = text_color,text="Kralingen Crooswijk")
-        self.Noord =  Area(area_color,(387,220,325,237,239,288,257,312,304,308,305,303,359,295,391,303))
-        self.noordTxt = canvas.create_text(325,275,fill = text_color,text="Noord")
-        self.Overschie =  Area(area_color, (103,129,131,122,137,137,237,73,284,133,315,109,328,123,325,237,239,288,259,314,205,319,178,269,206,233,200,230,169,244,143,215,133,228))
-        self.overschieTxt = canvas.create_text(240,190,fill = text_color,text="Overschie")
-        self.Prins_Alexander =  Area(area_color,(541,303,607,283,601,233,629,251,600,151,609,148,615,155,714,94,694,77,710,21,703,8,578,51,620,97,585,113,563,89,499,126))
-        self.prins_alexanderTxt = canvas.create_text(560,170,fill = text_color,text="Prins Alexander")
-        self.Centrum =  Area(area_color, (341,409,329,372,315,369,331,359,329,307,304,308,305,303,359,295,391,303,421,307,431,333,417,337,381,383))
-        self.centrumTxt = canvas.create_text(360,350,fill = text_color,text="Centrum")
+        self.Charlois =  Area(area_color,(841,409,859,428,919,411,915,463,907,465,907,480,945,515,971,549,925,547,877,565,877,579,828,581,774,559,801,549,812,533,801,528,799,509,831,437,817,431,818,413))
+        self.charloisTxt = canvas.create_text(850,500,fill = text_color,text="Charlois")
+        self.Delfshaven =  Area(area_color,(705,319,689,364,699,388,692,407,742,398,818,413,841,409,829,372,815,369,831,359,829,304))
+        self.delfshavnTxt = canvas.create_text(750,360,fill = text_color,text="Delfshaven")
+        self.Feijenoord =  Area(area_color,(931,333,917,337,881,383,841,409,859,428,919,411,915,463,907,465,907,480,945,515,969,490,991,490,997,465,967,403,979,395,969,348))
+        self.feijenoordTxt = canvas.create_text(950,460,fill = text_color,text="Feijenoord")
+        self.Hillegersberg_Schiebroek =  Area(area_color,(828,123,825,237,1013,188,999,126,983,142,955,130,952,115,925,94,921,103,853,60))
+        self.hillegersberg_schiebroekTxt = canvas.create_text(915,160,fill = text_color,text="Hillegersberg Schiebroek")
+        self.Ijsselmonde =  Area(area_color,(1048,396,993,411,979,395,967,403,997,465,991,490,969,490,945,515,971,549,1016,554,1049,542,1105,511,1111,519,1121,513,1141,404,1083,389))
+        self.ijsselmondeTxt = canvas.create_text(1050,475,fill = text_color,text="Ijsselmonde")
+        self.Kralingen_Crooswijk =  Area(area_color,(1014,188,1041,303,1025,332,1048,396,993,411,979,395,969,348,931,333,921,307,891,303,887,220))
+        self.kralingen_crooswijkTxt = canvas.create_text(960,275,fill = text_color,text="Kralingen Crooswijk")
+        self.Noord =  Area(area_color,(887,220,825,237,739,288,757,312,804,308,805,303,859,295,891,303))
+        self.noordTxt = canvas.create_text(825,275,fill = text_color,text="Noord")
+        self.Overschie =  Area(area_color, (603,129,631,122,637,137,737,73,784,133,815,109,828,123,825,237,739,288,759,314,705,319,678,269,706,233,700,230,669,244,643,215,633,228))
+        self.overschieTxt = canvas.create_text(740,190,fill = text_color,text="Overschie")
+        self.Prins_Alexander =  Area(area_color,(1041,303,1107,283,1101,233,1129,251,1100,151,1109,148,1115,155,1214,94,1194,77,1210,21,1203,8,1078,51,1120,97,1085,113,1063,89,999,126))
+        self.prins_alexanderTxt = canvas.create_text(1060,170,fill = text_color,text="Prins Alexander")
+        self.Centrum =  Area(area_color, (841,409,829,372,815,369,831,359,829,307,804,308,805,303,859,295,891,303,921,307,931,333,917,337,881,383))
+        self.centrumTxt = canvas.create_text(860,350,fill = text_color,text="Centrum")
         self.button01 = Button(tk, text = "Criminaliteit 2009", command = create_average_crime_result_2009, bg = "white", fg = "black")
         self.button02 = Button(tk, text = "Criminaliteit 2011", command = create_average_crime_result_2011, bg = "white", fg = "black")
-        self.button03 = Button(tk, text = "Diefstal 2009", command = create_diefstal_crime_result_2009, bg = "white", fg = "black")
-        self.button04 = Button(tk, text = "Diefstal 2011", command = create_diefstal_crime_result_2011, bg = "white", fg = "black")
-        self.button05 = Button(tk, text = "Drugsoverlast 2009", command = create_drugsoverlast_crime_result_2009, bg = "white", fg = "black")
-        self.button06 = Button(tk, text = "Drugsoverlast 2011", command = create_drugsoverlast_crime_result_2011, bg = "white", fg = "black")
-        self.button07 = Button(tk, text = "Geweld 2009", command = create_geweld_crime_result_2009, bg = "white", fg = "black")
-        self.button08 = Button(tk, text = "Geweld 2011", command = create_geweld_crime_result_2011, bg = "white", fg = "black")
-        self.button09 = Button(tk, text = "Inbraak 2009", command = create_inbraak_crime_result_2009, bg = "white", fg = "black")
-        self.button10 = Button(tk, text = "Inbraak 2011", command = create_inbraak_crime_result_2011, bg = "white", fg = "black")
-        self.button11 = Button(tk, text = "Vandalisme 2009", command = create_vandalisme_crime_result_2009, bg = "white", fg = "black")
-        self.button12 = Button(tk, text = "Vandalisme 2011", command = create_vandalisme_crime_result_2011, bg = "white", fg = "black")
-        self.button13 = Button(tk, text = "Overlast 2009", command = create_overlast_crime_result_2009, bg = "white", fg = "black")
-        self.button14 = Button(tk, text = "Overlast 2011", command = create_overlast_crime_result_2011, bg = "white", fg = "black")
-        self.button15 = Button(tk, text = "Vervuiling 2009", command = create_vervuiling_crime_result_2009, bg = "white", fg = "black")
-        self.button16 = Button(tk, text = "Vervuiling 2011", command = create_vervuiling_crime_result_2011, bg = "white", fg = "black")
-        self.button17 = Button(tk, text = "Verkeer 2009", command = create_verkeer_crime_result_2009, bg = "white", fg = "black")
-        self.button18 = Button(tk, text = "Verkeer 2011", command = create_verkeer_crime_result_2011, bg = "white", fg = "black")
-        self.button19 = Button(tk, text = "Question 3", command = None, bg = "white", fg = "black")
-        self.button20 = Button(tk, text = "Concentratie metrostations", command = create_metro_result, bg = "white", fg = "black")
+        self.button03 = Button(tk, text = "Question 3", command = None, bg = "white", fg = "black")
+        self.button04 = Button(tk, text = "Concentratie metrostations", command = create_metro_result, bg = "white", fg = "black")
+        self.button05 = Button(tk, text = "", command = None, bg = "white", fg = "black")
+        self.button06 = Button(tk, text = "", command = None, bg = "white", fg = "black")
+        self.button07 = Button(tk, text = "", command = None, bg = "white", fg = "black")
+        self.button08 = Button(tk, text = "", command = None, bg = "white", fg = "black")
+        self.button09 = Button(tk, text = "", command = None, bg = "white", fg = "black")
+        self.button10 = Button(tk, text = "", command = None, bg = "white", fg = "black")
+        self.button11 = Button(tk, text = "", command = None, bg = "white", fg = "black")
+        self.button12 = Button(tk, text = "", command = None, bg = "white", fg = "black")
+        self.button13 = Button(tk, text = "", command = None, bg = "white", fg = "black")
+        self.button14 = Button(tk, text = "", command = None, bg = "white", fg = "black")
+        self.button15 = Button(tk, text = "", command = None, bg = "white", fg = "black")
+        self.button16 = Button(tk, text = "", command = None, bg = "white", fg = "black")
+        self.button17 = Button(tk, text = "", command = None, bg = "white", fg = "black")
+        self.button18 = Button(tk, text = "", command = None, bg = "white", fg = "black")
+        self.button19 = Button(tk, text = "", command = None, bg = "white", fg = "black")
+        self.button20 = Button(tk, text = "", command = None, bg = "white", fg = "black")
         self.button01.grid(row = 0, column = 0)
         self.button02.grid(row = 1, column = 0)
         self.button03.grid(row = 2, column = 0)
@@ -85,14 +85,14 @@ def str_to_code(object, attr):
 
 class crime_result:
     def __init__(self, main_screen, jaar, soort):
-        for wijk in d.get_areas("criminaliteit"):
+        for wijk in d.get_areas("criminaliteit", jaar):
             a = wijk[0]
             result = d.get_crime_data(soort, jaar, ("'" + a + "'"))
-            canvas.itemconfig(str_to_code(main_screen, str(a)).shape, fill = c.rgb_to_hex(result, (255, 0 ,0), 35, True))
+            canvas.itemconfig(str_to_code(main_screen, str(a)).shape, fill = c.rgb_to_hex(result, (255, 0 ,0), 20, True))
 
 class metro_result:
     def __init__(self, main_screen):
-        for wijk in d.get_areas("metro"):
+        for wijk in d.get_areas("metro", None):
             a = wijk[0]
             info = d.get_metro_info(("'" + a + "'"))[0]
             if info[1] != None:
@@ -105,112 +105,13 @@ def create_average_crime_result_2009():
     remove_extra_images()
     crime_result(map, "'2009'", "average")
     politiebureau()
-    g.create_crime_graph("'2009'", "average")
+    g.crime_graph_2009()
 
 def create_average_crime_result_2011():
     remove_extra_images()
     crime_result(map, "'2011'", "average")
     politiebureau()
-    g.create_crime_graph("'2011'", "average")
-
-def create_diefstal_crime_result_2009():
-    remove_extra_images()
-    crime_result(map, "'2009'", "diefstal")
-    politiebureau()
-    g.create_crime_graph("'2009'", "diefstal")
-
-def create_drugsoverlast_crime_result_2009():
-    remove_extra_images()
-    crime_result(map, "'2009'", "drugsoverlast")
-    politiebureau()
-    g.create_crime_graph("'2009'", "drugsoverlast")
-
-def create_geweld_crime_result_2009():
-    remove_extra_images()
-    crime_result(map, "'2009'", "geweld")
-    politiebureau()
-    g.create_crime_graph("'2009'", "geweld")
-
-def create_inbraak_crime_result_2009():
-    remove_extra_images()
-    crime_result(map, "'2009'", "inbraak")
-    politiebureau()
-    g.create_crime_graph("'2009'", "inbraak")
-
-def create_vandalisme_crime_result_2009():
-    remove_extra_images()
-    crime_result(map, "'2009'", "vandalisme")
-    politiebureau()
-    g.create_crime_graph("'2009'", "vandalisme")
-
-def create_overlast_crime_result_2009():
-    remove_extra_images()
-    crime_result(map, "'2009'", "overlast")
-    politiebureau()
-    g.create_crime_graph("'2009'", "overlast")
-
-def create_vervuiling_crime_result_2009():
-    remove_extra_images()
-    crime_result(map, "'2009'", "vervuiling")
-    politiebureau()
-    g.create_crime_graph("'2009'", "vervuiling")
-
-def create_verkeer_crime_result_2009():
-    remove_extra_images()
-    crime_result(map, "'2009'", "verkeer")
-    politiebureau()
-    g.create_crime_graph("'2009'", "verkeer")
-
-def create_diefstal_crime_result_2011():
-    remove_extra_images()
-    crime_result(map, "'2011'", "diefstal")
-    politiebureau()
-    g.create_crime_graph("'2011'", "diefstal")
-
-def create_drugsoverlast_crime_result_2011():
-    remove_extra_images()
-    crime_result(map, "'2011'", "drugsoverlast")
-    politiebureau()
-    g.create_crime_graph("'2011'", "drugsoverlast")
-
-def create_geweld_crime_result_2011():
-    remove_extra_images()
-    crime_result(map, "'2011'", "geweld")
-    politiebureau()
-    g.create_crime_graph("'2011'", "geweld")
-
-def create_inbraak_crime_result_2011():
-    remove_extra_images()
-    crime_result(map, "'2011'", "inbraak")
-    politiebureau()
-    g.create_crime_graph("'2011'", "inbraak")
-
-def create_vandalisme_crime_result_2011():
-    remove_extra_images()
-    crime_result(map, "'2011'", "vandalisme")
-    politiebureau()
-    g.create_crime_graph("'2011'", "vandalisme")
-
-def create_overlast_crime_result_2011():
-    remove_extra_images()
-    crime_result(map, "'2011'", "overlast")
-    politiebureau()
-    g.create_crime_graph("'2011'", "overlast")
-
-def create_vervuiling_crime_result_2011():
-    remove_extra_images()
-    crime_result(map, "'2011'", "vervuiling")
-    politiebureau()
-    g.create_crime_graph("'2011'", "vervuiling")
-
-def create_verkeer_crime_result_2011():
-    remove_extra_images()
-    crime_result(map, "'2011'", "verkeer")
-    politiebureau()
-    g.create_crime_graph("'2011'", "verkeer")
-
-
-
+    g.crime_graph_2011()
 
 def create_metro_result():
     remove_extra_images()
