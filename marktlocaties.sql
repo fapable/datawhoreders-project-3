@@ -11,3 +11,4 @@ INSERT INTO marktlocaties VALUES(580,160);
 INSERT INTO marktlocaties VALUES(380,360);
 INSERT INTO marktlocaties VALUES(260,270);
 INSERT INTO marktlocaties VALUES(400,505);
+INSERT INTO marktlocaties VALUES(472,315);
