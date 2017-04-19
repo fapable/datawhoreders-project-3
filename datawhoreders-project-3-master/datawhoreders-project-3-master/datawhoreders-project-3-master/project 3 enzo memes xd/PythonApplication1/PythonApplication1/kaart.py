@@ -255,6 +255,10 @@ def politiebureau(soort):
 def markten():
     global q2
     q2 = canvas.create_text(10, 680, anchor = W, font = "Arial", text = "Kans op gratis parkeren bij de markt")
+    global maing
+    maing = PhotoImage(file = "rsz_markt.gif")
+    for item in d.markt_coordinaten():
+        canvas.create_image(item[0], item[1], image = maing)
 
 def remove_extra_images():
     plt.close()
