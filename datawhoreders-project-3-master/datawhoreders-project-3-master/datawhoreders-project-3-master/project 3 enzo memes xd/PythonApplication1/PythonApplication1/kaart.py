@@ -7,10 +7,11 @@ import matplotlib.pyplot as plt
 
 tk = Tk()
 tk.resizable(width=False, height=False)
-tk.title("( ͡° ͜ʖ ͡°)")
+
 
 width = 780
 height = 720
+tk.title("Datawhoreders")
 canvas = Canvas(tk, width=width, height=height)
 kaart = PhotoImage(file = "kaart4.gif")
 canvas.create_image(405,355,image=kaart) #alles -500
@@ -119,114 +120,133 @@ def create_markt_result():
 
 def create_average_crime_result_2009():
     remove_extra_images()
+    tk.title("Criminaliteit Rotterdam")
     crime_result(map, "'2009'", "average")
     politiebureau("Average cime")
     g.create_crime_graph("'2009'", "average")
 
 def create_average_crime_result_2011():
     remove_extra_images()
+    tk.title("Criminaliteit Rotterdam")
     crime_result(map, "'2011'", "average")
     politiebureau("Average crime")
     g.create_crime_graph("'2011'", "average")
 
 def create_diefstal_crime_result_2009():
     remove_extra_images()
+    tk.title("Criminaliteit Rotterdam")
     crime_result(map, "'2009'", "diefstal")
     politiebureau("Diefstal")
     g.create_crime_graph("'2009'", "diefstal")
 
 def create_drugsoverlast_crime_result_2009():
     remove_extra_images()
+    tk.title("Criminaliteit Rotterdam")
     crime_result(map, "'2009'", "drugsoverlast")
     politiebureau("Drugsoverlast")
     g.create_crime_graph("'2009'", "drugsoverlast")
 
 def create_geweld_crime_result_2009():
     remove_extra_images()
+    tk.title("Criminaliteit Rotterdam")
     crime_result(map, "'2009'", "geweld")
     politiebureau("Geweld")
     g.create_crime_graph("'2009'", "geweld")
 
 def create_inbraak_crime_result_2009():
     remove_extra_images()
+    tk.title("Criminaliteit Rotterdam")
     crime_result(map, "'2009'", "inbraak")
     politiebureau("Inbraak")
     g.create_crime_graph("'2009'", "inbraak")
 
 def create_vandalisme_crime_result_2009():
     remove_extra_images()
+    tk.title("Criminaliteit Rotterdam")
     crime_result(map, "'2009'", "vandalisme")
     politiebureau("Vandalisme")
     g.create_crime_graph("'2009'", "vandalisme")
 
 def create_overlast_crime_result_2009():
     remove_extra_images()
+    tk.title("Criminaliteit Rotterdam")
     crime_result(map, "'2009'", "overlast")
     politiebureau("Overlast")
     g.create_crime_graph("'2009'", "overlast")
 
 def create_vervuiling_crime_result_2009():
     remove_extra_images()
+    tk.title("Criminaliteit Rotterdam")
     crime_result(map, "'2009'", "vervuiling")
     politiebureau("Vervuiling")
     g.create_crime_graph("'2009'", "vervuiling")
 
 def create_verkeer_crime_result_2009():
     remove_extra_images()
+    tk.title("Criminaliteit Rotterdam")
     crime_result(map, "'2009'", "verkeer")
     politiebureau("Verkeer crime")
     g.create_crime_graph("'2009'", "verkeer")
 
 def create_diefstal_crime_result_2011():
     remove_extra_images()
+    tk.title("Criminaliteit Rotterdam")
     crime_result(map, "'2011'", "diefstal")
     politiebureau("Diefstal")
     g.create_crime_graph("'2011'", "diefstal")
 
 def create_drugsoverlast_crime_result_2011():
     remove_extra_images()
+    tk.title("Criminaliteit Rotterdam")
     crime_result(map, "'2011'", "drugsoverlast")
     politiebureau("Drugsoverlast")
     g.create_crime_graph("'2011'", "drugsoverlast")
 
 def create_geweld_crime_result_2011():
     remove_extra_images()
+    tk.title("Criminaliteit Rotterdam")
     crime_result(map, "'2011'", "geweld")
     politiebureau("Geweld")
     g.create_crime_graph("'2011'", "geweld")
 
 def create_inbraak_crime_result_2011():
     remove_extra_images()
+    tk.title("Criminaliteit Rotterdam")
     crime_result(map, "'2011'", "inbraak")
     politiebureau("Inbraak")
     g.create_crime_graph("'2011'", "inbraak")
 
 def create_vandalisme_crime_result_2011():
     remove_extra_images()
+    tk.title("Criminaliteit Rotterdam")
     crime_result(map, "'2011'", "vandalisme")
     politiebureau("Vandalisme")
     g.create_crime_graph("'2011'", "vandalisme")
 
 def create_overlast_crime_result_2011():
     remove_extra_images()
+    tk.title("Criminaliteit Rotterdam")
     crime_result(map, "'2011'", "overlast")
     politiebureau("Overlast")
     g.create_crime_graph("'2011'", "overlast")
 
 def create_vervuiling_crime_result_2011():
     remove_extra_images()
+    tk.title("Criminaliteit Rotterdam")
     crime_result(map, "'2011'", "vervuiling")
     politiebureau("Vervuiling")
     g.create_crime_graph("'2011'", "vervuiling")
 
 def create_verkeer_crime_result_2011():
     remove_extra_images()
+    tk.title("Criminaliteit Rotterdam")
     crime_result(map, "'2011'", "verkeer")
     politiebureau("Verkeer crime")
     g.create_crime_graph("'2011'", "verkeer")
 
 def create_metro_result():
     remove_extra_images()
+    tk.title("Concentratie metrostations Rotterdam")
     metro_result(map)
     metro_stations()
 
@@ -253,6 +273,8 @@ def politiebureau(soort):
     canvas.create_image((width - (climg.width()/2)), (height - (climg.height()/2)), image = climg)
 
 def markten():
+    remove_extra_images()
+    tk.title("Marktparkeermogelijkheden")
     global q2
     q2 = canvas.create_text(10, 680, anchor = W, font = "Arial", text = "Kans op gratis parkeren bij de markt")
     global maing
